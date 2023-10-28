@@ -1,18 +1,25 @@
 "use client";
 
+
 import React, { useEffect, useState } from "react";
+
+
 import SideNav from "./components/SideNav";
-import { useRouter, useSearchParams } from "next/navigation";
 import SessionCard from "./components/Cards/SessionCard";
+
 import SessionAccordion from "./components/SessionAccordion";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 // import Patients from "./components/Patients";
+
+import Sessions from "./components/Sessions";
+
 
 export default function Dashboard() {
   // const [tab, setTab] = useState("");
   // const router = useRouter();
   // const searchParams = useSearchParams();
   // const currentTab = searchParams.get("tab")
+
 
   // useEffect(() => {
 
