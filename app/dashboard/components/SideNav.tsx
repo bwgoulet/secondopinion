@@ -73,6 +73,14 @@ export default function SideNav() {
                             </ListboxItem>
                         </ListboxSection>
                     </Listbox>
+                    <div className="border-t border-zinc-800 flex p-3">
+                        <Avatar isBordered color="success" size="sm" src={session?.data?.user?.image ?? ""} />
+                        <div className="flex justify-between items-center ml-3">
+                            <div className="leading-4">
+                                <h4 className="font-semibold ">{session?.data?.user?.name}</h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </aside >
