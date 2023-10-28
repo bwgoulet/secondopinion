@@ -5,7 +5,7 @@ import { Card, CardBody, CardFooter, Chip } from "@nextui-org/react";
 
 export default function SessionCard({ props }: any) {
     return (
-        <Card isPressable className="w-full mb-4 shadow-md">
+        <Card isPressable className="w-full mb-4 shadow-md h-22">
             <CardBody>
                 <p>{props.date}</p>
                 <p>{props.summary}</p>

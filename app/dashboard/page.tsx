@@ -7,7 +7,7 @@ import SessionCard from "./components/Cards/SessionCard";
 import SessionAccordion from "./components/SessionAccordion";
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 import Sessions from "./components/Sessions";
-import Session from "./components/Session";
+import Session from "./components/Cards/Session";
 
 export default function Dashboard() {
 

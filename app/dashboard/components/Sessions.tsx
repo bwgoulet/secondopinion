@@ -65,7 +65,7 @@ export default function Sessions() {
             <div className="flex flex-row items-center mb-[20px]">
                 <p className="text-2xl">Sessions</p>
                 <div className="flex-1"></div>
-                <Button onClick={() => router.push(`/dashboard/session/new?id=1234`)}>Create Session</Button>
+                <Button startContent={<Icon icon="mdi:plus" />} onClick={() => router.push(`/dashboard/session/new?id=1234`)}>Create Session</Button>
             </div>
             <div className="overflow-y-auto pb-[75px]">
                 {data.map((session) => {
