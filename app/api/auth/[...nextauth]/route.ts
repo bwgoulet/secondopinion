@@ -6,7 +6,7 @@ import clientPromise from "@/lib/mongodb";
 export const authOptions: NextAuthOptions = {
     // adds the mongo connection to next-auth
     session: { strategy: "jwt", },
-    adapter: MongoDBAdapter(clientPromise, { databaseName: process.env.MONGO_DB ?? "development" }),
+    adapter: MongoDBAdapter(clientPromise, { databaseName: process.env.NODE_ENV ?? "development" }),
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID ?? "",

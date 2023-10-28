@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^2.0.3",
     "@nextui-org/react": "^2.1.13",
     "framer-motion": "^10.16.4",
     "mongodb": "^6.2.0",
