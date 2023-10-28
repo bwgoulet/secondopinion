@@ -2,13 +2,9 @@
 
 import { Button, Textarea } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { AudioRecorder } from 'react-audio-voice-recorder';
 
-
 export default function Session() {
-
-
 
     const addAudioElement = (blob: Blob) => {
         const url = URL.createObjectURL(blob);
@@ -22,9 +18,7 @@ export default function Session() {
 
     return (
 
-
         <div className="flex">
-
             <div className="bg-blue-200 h-screen p-[20px]">
                 <Button onClick={() => router.push("/dashboard")}>Cancel</Button>
             </div>
