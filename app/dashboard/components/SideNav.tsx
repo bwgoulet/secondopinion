@@ -8,12 +8,13 @@ import {
     ListboxItem,
     ListboxSection,
     useDisclosure,
+    Spinner,
 } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import PatientCard from "./Cards/PatientCard";
 import FormModal from "./Modals/FormModal";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function SideNav({ patients, setPatient }: any) {
     const session = useSession();

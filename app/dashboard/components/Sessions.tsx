@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 export default function Sessions({ selectedPatient, setPatient, sessions }: any) {
 
     const session = useSession();
-
     const router = useRouter();
 
     return (
