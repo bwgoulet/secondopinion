@@ -1,24 +1,35 @@
 "use client";
 
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideNav from "./components/SideNav";
-import SessionCard from "./components/Cards/SessionCard";
-import SessionAccordion from "./components/SessionAccordion";
-import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 import Sessions from "./components/Sessions";
 import Session from "./components/Cards/Session";
 
 export default function Dashboard() {
 
-    const data = {
-        date: "Random date",
-    };
+    const [patients, setPatients] = useState<any>([])
+
+    useEffect(() => {
+
+        const fetchPatients = async () => {
+            const { data } = await fetch('/api/patients/all')
+                .then((res) => res.json());
+
+            setPatients(data)
+
+            console.log(data);
+
+        }
+
+        fetchPatients();
+
+    }, [])
 
     return (
         <>
             <div className="flex flex-row">
-                <SideNav />
+                <SideNav patients={patients} />
                 <div className="flex flex-col w-[30%] bg-neutral-50  p-[20px] h-screen ">
                     <Sessions />
                 </div>
