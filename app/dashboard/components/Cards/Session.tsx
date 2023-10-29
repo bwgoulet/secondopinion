@@ -1,6 +1,6 @@
 "use client";
 
-import { Accordion, AccordionItem, Button, Card, CardBody, CardHeader, Chip, Divider, ScrollShadow, Spinner } from "@nextui-org/react";
+import { Accordion, AccordionItem, Badge, Button, Card, CardBody, CardHeader, Chip, Divider, PopoverContent, ScrollShadow, Spinner, Tooltip } from "@nextui-org/react";
 import parse from 'html-react-parser';
 
 
@@ -39,9 +39,13 @@ export default function Session({ session, selectedPatient }: any) {
                 {session?.flags?.map((flag: any) => {
                   return (
                     <div>
-                      <Chip color="danger" variant="flat" className="mr-1 mb-1">
-                        {flag.issue}
-                      </Chip>
+                      <Tooltip showArrow placement="bottom" color="danger" content={`${flag.description}`} className="w-[250px] h-[150px] text-sm">
+                        <Badge className="hover:cursor-pointer" content="i" shape="circle" color="danger">
+                          <Chip color="danger" variant="flat" className="mr-1 mb-1">
+                            {flag.issue}
+                          </Chip>
+                        </Badge>
+                      </Tooltip>
                     </div>
                   )
                 })
