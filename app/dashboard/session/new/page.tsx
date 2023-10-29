@@ -12,13 +12,6 @@ export default function Session() {
     const [audioBlob, setAudioBlob] = useState<Blob>();
 
     const addAudioElement = (blob: Blob) => {
-        const url = URL.createObjectURL(blob);
-        const audio = document.createElement("audio");
-        audio.src = url;
-        audio.controls = true;
-        document.body.appendChild(audio);
-
-        console.log(blob);
         setAudioBlob(blob)
     };
 
