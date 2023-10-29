@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { Button, Textarea } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { AudioRecorder } from "react-audio-voice-recorder";
@@ -17,15 +18,27 @@ export default function Session() {
 
   return (
     <div className="flex">
-      <div className="bg-indigo-600 h-screen p-[20px]">
-        <Button onClick={() => router.push("/dashboard")}>Cancel</Button>
+      <div className="h-screen py-[20px]">
+        <Button
+          className="bg-transparent rounded-full p-0 h-[50px] text-gray-500"
+          onClick={() => router.push("/dashboard")}
+        >
+          <Icon icon="bx:x" width="80"></Icon>
+        </Button>
       </div>
-      <div className="flex flex-col flex-1 h-screen bg-neutral-50 p-[20px] items-center">
-        <div className="my-4">
+      <div className="flex flex-col flex-1 h-screen p-[20px]">
+        <div className="mb-5">
           {/* Header */}
-          <p className="text-2xl">October 25, 2023</p>
+          <p className="font-bold text-sm">Title</p>
+          <p className="text-5xl">October 25, 2023 @ 5:47 PM</p>
         </div>
-        <div className="my-4 flex items-center">
+        <div className="mb-5">
+          {/* Supporting Information */}
+          <p className="font-bold text-sm">Patient</p>
+          <p className="text-1xl">John Smith</p>
+        </div>
+        <div className="mb-5 mr-5">
+          <p className="font-bold text-sm">Session Recording</p>
           <div>
             <AudioRecorder
               onRecordingComplete={addAudioElement}
@@ -38,17 +51,20 @@ export default function Session() {
               showVisualizer={true}
             />
           </div>
-          <div className="ml-4">
-            <Textarea
-              // label="Doctors notes"
-              labelPlacement="outside"
-              placeholder="Enter your notes"
-              className="max-w-xs items-center"
-            />
-          </div>
         </div>
-        <div className="my-4">
-          <Button>Submit</Button>
+        <div className="mb-4">
+          <p className="font-bold text-sm">Provider Notes</p>
+          <Textarea
+            labelPlacement="outside"
+            placeholder="Enter your notes"
+            className="max-w-2xl items-center"
+          />
+        </div>
+
+        <div className="">
+          <Button variant="solid" className="bg-indigo-600 text-white">
+            Submit Session
+          </Button>
         </div>
       </div>
     </div>
