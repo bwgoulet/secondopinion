@@ -9,8 +9,8 @@ import Session from "./components/Cards/Session";
 export default function Dashboard() {
 
     const [patients, setPatients] = useState<any>([])
-
-    const [selectedPatient, setPatient] = useState();
+    const [selectedPatient, setPatient] = useState<any>([]);
+    const [sessions, setSessions] = useState<any>([])
 
     useEffect(() => {
         const fetchPatients = async () => {
@@ -25,7 +25,22 @@ export default function Dashboard() {
 
 
     useEffect(() => {
-        console.log(selectedPatient)
+
+        const fetchSessions = async () => {
+
+
+            const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`)
+                .then((res) => res.json());
+
+            console.log(data);
+            setSessions(data)
+
+        }
+
+        if (selectedPatient?._id) {
+            fetchSessions();
+        }
+
     }, [selectedPatient])
 
     return (
@@ -33,10 +48,10 @@ export default function Dashboard() {
             <div className="flex flex-row">
                 <SideNav setPatient={setPatient} patients={patients} />
                 <div className="flex flex-col w-[30%] bg-neutral-50  p-[20px] h-screen ">
-                    <Sessions selectedPatient={selectedPatient} setPatient={setPatient} />
+                    <Sessions sessions={sessions} selectedPatient={selectedPatient} setPatient={setPatient} />
                 </div>
                 <div className="flex-1 bg-neutral-100 p-[20px] border-l border-1">
-                    <Session />
+                    <Session sessions={sessions} />
                 </div>
             </div>
         </>

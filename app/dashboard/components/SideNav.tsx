@@ -20,11 +20,6 @@ export default function SideNav({ patients, setPatient }: any) {
 
     const modal = useDisclosure();
 
-
-    // useEffect(() => {
-    //     console.log(selectedPatient)
-    // }, [selectedPatient])
-
     return (
         <aside className="h-screen text-white w-60">
             <nav className="h-full flex flex-col bg-indigo-600 border-r border-indigo-300 shadow-sm">
