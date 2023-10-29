@@ -29,7 +29,9 @@ export default function Dashboard() {
 
         const fetchSessions = async () => {
 
-            const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`)
+            const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`, {
+                cache: "no-cache"
+            })
                 .then((res) => res.json());
 
             console.log(data);

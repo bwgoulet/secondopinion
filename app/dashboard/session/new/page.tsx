@@ -24,7 +24,8 @@ export default function Session() {
 
     const router = useRouter();
     const searchParams = useSearchParams()
-    const id = searchParams.get('id')
+    const id = searchParams.get('id');
+    const name = searchParams.get('name');
 
     const submitSession = async () => {
 
@@ -46,8 +47,23 @@ export default function Session() {
         })
 
         if (result.status === 200) {
-            alert('Success!')
+            router.push("/dashboard")
         }
+
+    }
+
+    const converDate = (timestamp: any) => {
+        var date = new Date(timestamp);
+
+        // Extract the date, month, and year
+        var month = date.getMonth() + 1; // Months are 0-based
+        var day = date.getDate();
+        var year = date.getFullYear();
+
+        // Format the date as MM/dd/yyyy
+        var formattedDate = month + '/' + day + '/' + year;
+
+        return formattedDate;
 
     }
 
@@ -60,12 +76,12 @@ export default function Session() {
                 <div className="mb-5 w-full">
                     {/* Header */}
                     <p className="font-bold text-sm">Title</p>
-                    <p className="text-5xl">October 25, 2023 @ 5:47 PM</p>
+                    <p className="text-5xl">{name}'s Session</p>
                 </div>
                 <div className="mb-5">
                     {/* Supporting Information */}
-                    <p className="font-bold text-sm">Patient</p>
-                    <p className="text-1xl">John Smith</p>
+                    <p className="font-bold text-sm">Date</p>
+                    <p className="text-1xl">{converDate(Date.now())}</p>
                 </div>
                 <div className="mb-5 mr-5">
                     <p className="font-bold text-sm">Session Recording</p>

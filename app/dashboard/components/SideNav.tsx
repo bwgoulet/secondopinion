@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import PatientCard from "./Cards/PatientCard";
 import FormModal from "./Modals/FormModal";
 import React, { useEffect, useState } from "react";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function SideNav({ patients, setPatient }: any) {
     const session = useSession();
@@ -29,7 +30,7 @@ export default function SideNav({ patients, setPatient }: any) {
                 </div>
                 <div className="flex-1 max-w-[260px] h-fit rounded-small border-default-200 dark:border-default-100">
                     <div className="p-3">
-                        <Button onClick={() => { modal.onOpen() }} className="p-4 w-full">Add new patient</Button>
+                        <Button startContent={<Icon className="text-lg" icon={"bx:plus"} />} onClick={() => { modal.onOpen() }} className="p-4 w-full">Add new patient</Button>
                     </div>
                     <div className="flex flex-col p-3">
                         {patients && patients.map((patient: any) => {
