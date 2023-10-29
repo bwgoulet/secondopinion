@@ -13,13 +13,19 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import PatientCard from "./Cards/PatientCard";
 import FormModal from "./Modals/FormModal";
+import { useEffect, useState } from "react";
 
-export default function SideNav({ patients }: any) {
+export default function SideNav({ patients, setPatient }: any) {
     const session = useSession();
+
     const modal = useDisclosure();
 
-    return (
 
+    // useEffect(() => {
+    //     console.log(selectedPatient)
+    // }, [selectedPatient])
+
+    return (
         <aside className="h-screen text-white w-60">
             <nav className="h-full flex flex-col bg-indigo-600 border-r border-indigo-300 shadow-sm">
                 <div className="flex justify-between items-center px-[20px] pt-[20px] h-[60px]">
@@ -31,7 +37,7 @@ export default function SideNav({ patients }: any) {
                     </div>
                     <div className="flex flex-col p-3">
                         {patients && patients.map((patient: any) => {
-                            return <PatientCard patient={patient}></PatientCard>
+                            return <PatientCard patient={patient} setPatient={setPatient} />
                         })}
                     </div>
                 </div>
