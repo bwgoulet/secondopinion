@@ -14,7 +14,7 @@ export default function Sessions({
     const router = useRouter();
 
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen overflow-scroll">
             <div className="flex lg:flex-row sm:flex-col md:flex-col xs:flex-col items-center mb-[20px] h-[60px]">
                 <p className="text-2xl">Sessions</p>
                 <div className="flex-1"></div>
@@ -29,11 +29,11 @@ export default function Sessions({
                     Create Session
                 </Button>
             </div>
-            <div className="flex flex-col overflow-y-auto pb-[75px]">
+            <div className="flex flex-col mb-70">
                 {!selectedPatient?._id && <p>Please select a patient!</p>}
 
                 {!sessions[0] && selectedPatient?._id && (
-                    <div className='flex flex-1 items-center justify-center h-full'>
+                    <div className='flex items-center justify-center h-full'>
                         <div className="flex-1"></div>
                         <div className="flex flex-col items-center">
                             <Icon icon="bx:plus" width="40" color="lightgray" className="mb-3"></Icon>

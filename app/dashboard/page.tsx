@@ -26,34 +26,36 @@ export default function Dashboard() {
 
 
     useEffect(() => {
+        let check = () => {
+            const fetchSessions = async () => {
 
-        const fetchSessions = async () => {
+                const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`, {
+                    cache: "no-cache"
+                })
+                    .then((res) => res.json());
 
-            const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`, {
-                cache: "no-cache"
-            })
-                .then((res) => res.json());
+                console.log(data);
+                setSessions(data)
 
-            console.log(data);
-            setSessions(data)
+            }
 
+            if (selectedPatient?._id) {
+                fetchSessions();
+            }
         }
 
-        if (selectedPatient?._id) {
-            fetchSessions();
+        check();
+
+        const interval = setInterval(check, 5000);
+
+        return () => {
+            clearInterval(interval);
         }
 
     }, [selectedPatient])
 
     useEffect(() => {
         let refreshCycle = setInterval(async () => {
-            let { data: d } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`, {
-                cache: "no-cache"
-            })
-                .then((res) => res.json());
-
-            setSessions(d);
-
             if (!session._id) return;
             const { data } = await fetch(`/api/session?sessionId=${session._id}`, {
                 cache: "no-cache"

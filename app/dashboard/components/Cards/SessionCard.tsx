@@ -9,21 +9,9 @@ export default function SessionCard({ session, setSession }: any) {
         <Card
             onClick={() => setSession(session)}
             isPressable
-            className="w-full mb-4 shadow-md h-22"
+            className="w-full mb-4 shadow-md"
         >
             <CardBody>
-                {/* <div className="flex justify-end mt-2">
-                    {session?.flags?.map((flag: any) => {
-                        return (
-                            <Chip
-                                className="mb-3" size="sm" color="danger" variant="flat"
-                                startContent={<Icon icon="solar:health-bold" />}
-                            >
-                                {flag.issue}
-                            </Chip>
-                        )
-                    })}
-                </div> */}
                 <p className="text-xl ">
                     {format(new Date(session.timestamp), "MM/dd/yyyy")}
                 </p>
