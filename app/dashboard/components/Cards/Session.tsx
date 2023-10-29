@@ -39,12 +39,12 @@ export default function Session({ session, selectedPatient }: any) {
                 {session?.flags?.map((flag: any) => {
                   return (
                     <div>
-                      <Tooltip showArrow placement="bottom" color="danger" content={`${flag.description}`} className="w-[250px] h-[150px] text-sm">
-                        <Badge className="hover:cursor-pointer" content="i" shape="circle" color="danger">
+                      <Tooltip showArrow placement="right" color="danger" content={`${flag.description}`} className="w-[250px] h-[150px] text-sm">
+                        {/* <Badge className="hover:cursor-pointer" content="i" shape="circle" color="danger"> */}
                           <Chip color="danger" variant="flat" className="mr-1 mb-1">
                             {flag.issue}
                           </Chip>
-                        </Badge>
+                        {/* </Badge> */}
                       </Tooltip>
                     </div>
                   )
