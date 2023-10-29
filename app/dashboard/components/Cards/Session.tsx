@@ -6,26 +6,23 @@ import SessionAccordion from "../SessionAccordion";
 export default function Session() {
   return (
     <div>
-      <p className="mb-[20px] text-2xl">Cool Guy's Session (XX/XX/XX)</p>
-      <div className="flex">
-        <Card className="w-1/2 mb-4 shadow-md">
-          <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-            <h4 className="font-bold text-large">Summary</h4>
-          </CardHeader>
-          <CardBody>
-            <p>Summary blah blah blah</p>
-          </CardBody>
-        </Card>
-        <Card className="w-1/2 mb-4 shadow-md ">
-          <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-            <h4 className="font-bold text-large">Flags</h4>
-          </CardHeader>
-          <CardBody>
-            <p>This is sus</p>
-            <p>This is really sus</p>
-            <p>This is REALLYYY sus</p>
-          </CardBody>
-        </Card>
+      <div className="px-2">
+        <p className="mb-[20px] text-2xl">Cool Guy's Session (XX/XX/XX)</p>
+        <p className="font-bold text-sm">Summary</p>
+        <p className="mb-5">Summary blah blah blah</p>
+        <div className="flex mb-5">
+          <div className="flex-1">
+            <p className="font-bold text-sm">Danger Level</p>
+            <div className="flex flex-col bg-red-600 h-[100px] p-5 rounded-lg">
+              <div className="flex-1"></div>
+              <p className="text-white text-xl">Dangerous</p>
+            </div>
+          </div>
+          <div className="w-[20px]"></div>
+          <div className="flex-1">
+            <p className="font-bold text-sm">Flags</p>
+          </div>
+        </div>
       </div>
       <div>
         <SessionAccordion></SessionAccordion>

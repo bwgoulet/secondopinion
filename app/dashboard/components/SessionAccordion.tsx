@@ -10,12 +10,6 @@ export default function SessionAccordion() {
       <AccordionItem key="1" aria-label="Transcript" title="Transcript">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="2" aria-label="Notes" title="Notes">
-        {defaultContent}
-      </AccordionItem>
-      <AccordionItem key="3" aria-label="GPT Insights??" title="GPT Insights??">
-        {defaultContent}
-      </AccordionItem>
     </Accordion>
   );
 }

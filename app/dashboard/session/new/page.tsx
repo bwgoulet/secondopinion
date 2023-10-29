@@ -20,7 +20,7 @@ export default function Session() {
     <div className="flex">
       <div className="h-screen py-[20px]">
         <Button
-          className="bg-transparent rounded-full p-0 h-[50px]"
+          className="bg-transparent rounded-full p-0 h-[50px] text-gray-500"
           onClick={() => router.push("/dashboard")}
         >
           <Icon icon="bx:x" width="80"></Icon>
@@ -29,16 +29,16 @@ export default function Session() {
       <div className="flex flex-col flex-1 h-screen p-[20px]">
         <div className="mb-5">
           {/* Header */}
-          <p className="text-indigo-600 text-sm">Title</p>
+          <p className="font-bold text-sm">Title</p>
           <p className="text-5xl">October 25, 2023 @ 5:47 PM</p>
         </div>
         <div className="mb-5">
           {/* Supporting Information */}
-          <p className="text-indigo-600 text-sm">Patient</p>
+          <p className="font-bold text-sm">Patient</p>
           <p className="text-1xl">John Smith</p>
         </div>
-        <div className="mb-5">
-          <p className="text-indigo-600 text-sm">Session Recording</p>
+        <div className="mb-5 mr-5">
+          <p className="font-bold text-sm">Session Recording</p>
           <div>
             <AudioRecorder
               onRecordingComplete={addAudioElement}
@@ -53,13 +53,14 @@ export default function Session() {
           </div>
         </div>
         <div className="mb-4">
-          <p className="text-indigo-600 text-sm">Provider Notes</p>
+          <p className="font-bold text-sm">Provider Notes</p>
           <Textarea
             labelPlacement="outside"
             placeholder="Enter your notes"
-            className="max-w-3xl items-center"
+            className="max-w-2xl items-center"
           />
         </div>
+
         <div className="">
           <Button variant="solid" className="bg-indigo-600 text-white">
             Submit Session
