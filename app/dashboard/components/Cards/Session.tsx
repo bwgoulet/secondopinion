@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import SessionAccordion from "./SessionAccordion";
+import SessionAccordion from "../SessionAccordion";
 
 export default function Session() {
   return (
