@@ -55,12 +55,18 @@ export default function Session({ session, selectedPatient }: any) {
             <p className="font-bold text-sm">Summary</p>
             <p className="mb-5">{session?.summary ? session?.summary : <Spinner />}</p>
           </div>
-          <div className="px-2 flex flex-col">
+          <div className="px-2 flex flex-col overflow-scroll max-h-[380px]">
             <div className="border-1 p-2">
               <p className="font-bold">Labeled Transcript</p>
               <ScrollShadow className="w-[800px]  h-[200px] overflow-y-auto whitespace-pre-wrap">
 
                 {session?.annotated_transcript ? parse(session?.annotated_transcript) : <div><p>Pending...</p><Spinner /></div>}
+              </ScrollShadow>
+            </div>
+            <div className="border-1 p-2">
+              <p className="font-bold">Doctor's Notes</p>
+              <ScrollShadow className="w-[800px] h-[100px] overflow-y-auto">
+                {session?.notes ? session?.notes : <Spinner />}
               </ScrollShadow>
             </div>
             <div className="border-1 p-2">
