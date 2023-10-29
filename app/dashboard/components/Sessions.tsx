@@ -37,6 +37,8 @@ export default function Sessions({ selectedPatient, setPatient }: any) {
     //     },
     // ];
 
+    console.log(selectedPatient)
+
     const router = useRouter();
 
     return (
@@ -46,13 +48,16 @@ export default function Sessions({ selectedPatient, setPatient }: any) {
                 <div className="flex-1"></div>
                 <Button
                     className="bg-indigo-600 text-white h-[40px]"
-                    onClick={() => router.push(`/dashboard/session/new?id=1234`)}
+                    onClick={() => router.push(`/dashboard/session/new?id=${selectedPatient?._id}`)}
                 >
                     Create Session
                 </Button>
             </div>
             <div className="overflow-y-auto pb-[75px]">
-                No sessions for {selectedPatient?.name}
+                {!selectedPatient
+                    ? <p>Please select a patient</p>
+                    :
+                    <p>No sessions could be found for {selectedPatient.name}</p>}
                 {/* {data.map((session) => {
                     return <SessionCard props={session} />;
                 })} */}
