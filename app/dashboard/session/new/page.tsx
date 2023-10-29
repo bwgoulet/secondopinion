@@ -18,16 +18,11 @@ export default function Session() {
 
   return (
     <div className="flex">
-      <div className="h-screen py-[20px]">
-        <Button
-          className="bg-transparent rounded-full p-0 h-[50px] text-gray-500"
-          onClick={() => router.push("/dashboard")}
-        >
-          <Icon icon="bx:x" width="80"></Icon>
-        </Button>
+      <div className="flex-1 flex">
+        <div className="flex-1"></div>
       </div>
-      <div className="flex flex-col flex-1 h-screen p-[20px]">
-        <div className="mb-5">
+      <div className="flex flex-col flex-1 h-screen py-[100px] max-w-4xl">
+        <div className="mb-5 w-full">
           {/* Header */}
           <p className="font-bold text-sm">Title</p>
           <p className="text-5xl">October 25, 2023 @ 5:47 PM</p>
@@ -61,12 +56,15 @@ export default function Session() {
           />
         </div>
 
-        <div className="">
+        <div className="flex">
           <Button variant="solid" className="bg-indigo-600 text-white">
             Submit Session
           </Button>
+          <div className="w-1"></div>
+          <Button onClick={() => router.push("/dashboard")}>Cancel</Button>
         </div>
       </div>
+      <div className="flex-1"></div>
     </div>
   );
 }
