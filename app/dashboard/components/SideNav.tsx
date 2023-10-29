@@ -31,8 +31,7 @@ export default function SideNav({ patients }: any) {
                     </div>
                     <div className="flex flex-col p-3">
                         {patients && patients.map((patient: any) => {
-                            console.log("asdasd");
-                            return <h1>{patient.name}</h1>
+                            return <PatientCard patient={patient}></PatientCard>
                         })}
                     </div>
                 </div>
