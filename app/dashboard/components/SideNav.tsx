@@ -43,13 +43,14 @@ export default function SideNav({ patients, setPatient }: any) {
             </Button>
           </div>
           <div className="flex flex-col p-3">
-            {patients.map((patient: any) => {
-              return <PatientCard patient={patient} setPatient={setPatient} />;
-            })}
+            {patients &&
+              patients.map((patient: any) => {
+                return <PatientCard patient={patient} setPatient={setPatient}></PatientCard>;
+              })}
           </div>
         </div>
         <div className="flex-1"></div>
-        <div className="border-t border-zinc-800 flex p-3">
+        <div className="border-t border-indigo-700 flex p-3">
           <Avatar
             isBordered
             color="success"

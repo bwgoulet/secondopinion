@@ -3,6 +3,7 @@ import SessionCard from "./Cards/SessionCard";
 import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
+
 export default function Sessions({ selectedPatient, setPatient }: any) {
     // const data = [
     //     {
@@ -36,6 +37,7 @@ export default function Sessions({ selectedPatient, setPatient }: any) {
     //         flags: ["Nausea", "Vomiting", "Stomach cramps"],
     //     },
     // ];
+
 
     const router = useRouter();
 
