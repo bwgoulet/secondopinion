@@ -3,16 +3,16 @@
 import { Button, Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
 import SessionAccordion from "../SessionAccordion";
 
-export default function Session() {
+export default function Session({ session, selectedPatient }) {
   return (
     <div>
       <div className="px-2">
         <div className="flex h-[60px] items-center mb-[20px]">
-          <p className=" text-2xl flex-1">Cool Guy's Session (XX/XX/XX)</p>
+          <p className=" text-2xl flex-1">{selectedPatient?.name}'s Session (XX/XX/XX)</p>
           <Button>Close</Button>
         </div>
         <p className="font-bold text-sm">Summary</p>
-        <p className="mb-5">Summary blah blah blah</p>
+        <p className="mb-5">{session?.summary}</p>
         <div className="flex mb-5">
           <div className="flex-1">
             <p className="font-bold text-sm">Danger Level</p>

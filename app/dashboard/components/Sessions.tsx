@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useSession } from "next-auth/react";
 
-export default function Sessions({ selectedPatient, setPatient, sessions }: any) {
+export default function Sessions({ selectedPatient, setPatient, sessions, setSession }: any) {
 
     const session = useSession();
     const router = useRouter();
@@ -25,7 +25,7 @@ export default function Sessions({ selectedPatient, setPatient, sessions }: any)
                 {!selectedPatient && <p>Please select a patient</p>}
 
                 {sessions.map((session: any) => {
-                    return <SessionCard session={session} />
+                    return <SessionCard session={session} setSession={setSession} />
                 })}
 
             </div>

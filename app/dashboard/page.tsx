@@ -10,7 +10,8 @@ export default function Dashboard() {
 
     const [patients, setPatients] = useState<any>([])
     const [selectedPatient, setPatient] = useState<any>([]);
-    const [sessions, setSessions] = useState<any>([])
+    const [sessions, setSessions] = useState<any>([]);
+    const [session, setSession] = useState<any>([]);
 
     useEffect(() => {
         const fetchPatients = async () => {
@@ -27,7 +28,6 @@ export default function Dashboard() {
     useEffect(() => {
 
         const fetchSessions = async () => {
-
 
             const { data } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`)
                 .then((res) => res.json());
@@ -48,10 +48,10 @@ export default function Dashboard() {
             <div className="flex flex-row">
                 <SideNav setPatient={setPatient} patients={patients} />
                 <div className="flex flex-col w-[30%] bg-neutral-50  p-[20px] h-screen ">
-                    <Sessions sessions={sessions} selectedPatient={selectedPatient} setPatient={setPatient} />
+                    <Sessions sessions={sessions} selectedPatient={selectedPatient} setPatient={setPatient} setSession={setSession} />
                 </div>
                 <div className="flex-1 bg-neutral-100 p-[20px] border-l border-1">
-                    <Session sessions={sessions} />
+                    <Session selectedPatient={selectedPatient} session={session} />
                 </div>
             </div>
         </>
