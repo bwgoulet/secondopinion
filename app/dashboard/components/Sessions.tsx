@@ -7,32 +7,32 @@ export default function Sessions() {
   const data = [
     {
       summary: "Frequent headaches, mild fever, and fatigue",
-      date: "10-22-21",
+      date: "October 22, 2021",
       flags: ["Headaches", "Fatigue"],
     },
     {
       summary: "Severe back pain and muscle stiffness",
-      date: "10-23-21",
+      date: "October 23, 2021",
       flags: ["Back pain", "Muscle stiffness"],
     },
     {
       summary: "Allergies, runny nose, and cough",
-      date: "10-24-21",
+      date: "October 24, 2021",
       flags: ["Allergies", "Cough"],
     },
     {
       summary: "Sore throat, high temperature, and fatigue",
-      date: "10-25-21",
+      date: "October 25, 2021",
       flags: ["Sore throat", "Fever", "Fatigue"],
     },
     {
       summary: "Joint pain and inflammation",
-      date: "10-26-21",
+      date: "October 26, 2021",
       flags: ["Joint pain", "Inflammation"],
     },
     {
       summary: "Nausea, vomiting, and stomach cramps",
-      date: "10-27-21",
+      date: "October 27, 2021",
       flags: ["Nausea", "Vomiting", "Stomach cramps"],
     },
   ];
