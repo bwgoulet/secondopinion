@@ -11,7 +11,7 @@ export default function Dashboard() {
     const [patients, setPatients] = useState<any>([])
     const [selectedPatient, setPatient] = useState<any>([]);
     const [sessions, setSessions] = useState<any>([]);
-    const [session, setSession] = useState<any>([]);
+    const [session, setSession] = useState<any>({});
 
     useEffect(() => {
         const fetchPatients = async () => {
@@ -44,6 +44,31 @@ export default function Dashboard() {
         }
 
     }, [selectedPatient])
+
+    useEffect(() => {
+        let refreshCycle = setInterval(async () => {
+            let { data: d } = await fetch(`/api/session/all?patientId=${selectedPatient?._id}`, {
+                cache: "no-cache"
+            })
+                .then((res) => res.json());
+
+            setSessions(d);
+
+            if (!session._id) return;
+            const { data } = await fetch(`/api/session?sessionId=${session._id}`, {
+                cache: "no-cache"
+            }).then((res) => res.json());
+
+            if (JSON.stringify(session) !== JSON.stringify(data)) {
+                console.log("fired");
+                setSession(data);
+            }
+        }, 5000);
+
+        return () => {
+            clearInterval(refreshCycle);
+        }
+    }, [session]);
 
     return (
         <>
