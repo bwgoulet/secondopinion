@@ -1,13 +1,16 @@
 "use client";
 
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Button, Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
 import SessionAccordion from "../SessionAccordion";
 
 export default function Session() {
   return (
     <div>
       <div className="px-2">
-        <p className="mb-[20px] text-2xl">Cool Guy's Session (XX/XX/XX)</p>
+        <div className="flex h-[60px] items-center mb-[20px]">
+          <p className=" text-2xl flex-1">Cool Guy's Session (XX/XX/XX)</p>
+          <Button>Close</Button>
+        </div>
         <p className="font-bold text-sm">Summary</p>
         <p className="mb-5">Summary blah blah blah</p>
         <div className="flex mb-5">
@@ -21,6 +24,23 @@ export default function Session() {
           <div className="w-[20px]"></div>
           <div className="flex-1">
             <p className="font-bold text-sm">Flags</p>
+            <div className="gap-4">
+              <Chip color="danger" variant="flat" className="mr-1 mb-1">
+                Dangerous Dose
+              </Chip>
+              <Chip color="danger" variant="flat" className="mr-1 mb-1">
+                Dangerous For Age
+              </Chip>
+              <Chip color="warning" variant="flat" className="mr-1 mb-1">
+                No Mention of Side Effects
+              </Chip>
+              <Chip color="success" variant="flat" className="mr-1 mb-1">
+                Great Communication
+              </Chip>
+              <Chip color="danger" variant="flat" className="mr-1 mb-1">
+                Potential Interaction
+              </Chip>
+            </div>
           </div>
         </div>
       </div>
