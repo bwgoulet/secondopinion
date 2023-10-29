@@ -8,15 +8,22 @@ import {
   ListboxItem,
   ListboxSection,
   useDisclosure,
+  Spinner,
 } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import PatientCard from "./Cards/PatientCard";
 import FormModal from "./Modals/FormModal";
+import React, { useEffect, useState } from "react";
 
-export default function SideNav({ patients }: any) {
+export default function SideNav({ patients, setPatient }: any) {
   const session = useSession();
+
   const modal = useDisclosure();
+
+  // useEffect(() => {
+  //     console.log(selectedPatient)
+  // }, [selectedPatient])
 
   return (
     <aside className="h-screen text-white w-60">
@@ -38,7 +45,7 @@ export default function SideNav({ patients }: any) {
           <div className="flex flex-col p-3">
             {patients &&
               patients.map((patient: any) => {
-                return <PatientCard patient={patient}></PatientCard>;
+                return <PatientCard patient={patient} setPatient={setPatient}></PatientCard>;
               })}
           </div>
         </div>
